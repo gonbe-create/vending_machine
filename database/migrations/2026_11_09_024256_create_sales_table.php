@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id'); // 主キー
-            $table->unsignedBigInteger('products_id'); // 商品IDキー
+            $table->unsignedBigInteger('product_id'); // 商品IDキー
             $table->timestamps();
         });
     }

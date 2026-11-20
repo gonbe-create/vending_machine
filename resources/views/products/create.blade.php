@@ -93,12 +93,21 @@
     <h2>商品新規登録画面</h2>
     
     <div class="form-container">
-    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-date">
+    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+        @if ($errors->any())
+        <ur style="color: red;">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        @endif
+
+
         @csrf
 
         <div class="form-group">
             <label>商品名<span class="required">*</span></label>
-            <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="商品名を入力">
+            <input type="text" name="product_name" class="form-control" value="{{ old('product_name') }}" placeholder="商品名を入力">
         </div>
 
         <div class="form-group">

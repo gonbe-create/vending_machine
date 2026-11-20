@@ -21,10 +21,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 use App\Http\Controllers\ProductController;
 // 商品一覧表示
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
@@ -37,6 +33,15 @@ Route::post('/products', [ProductController::class, 'store'])->name('products.st
 
 // 商品詳細画面の表示
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+// 商品編集画面の表示
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+
+// 商品更新処理の実行
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+
+// 商品削除処理の実行
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 use App\Models\Company;
 
